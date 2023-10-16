@@ -1,5 +1,15 @@
 @import config
 
+.body
+  a
+    color: #000
+    &:hover
+      text-decoration: none
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+
 img
   max-width: 100%
   height: auto
@@ -90,3 +100,56 @@ img
         margin-top: 7px
   .wp-caption
     max-width: 100%
+
+.container
+  max-width: 1320px
+  padding: 0 15px
+  margin: 0 auto
+  width: 100%
+
+.text
+  color: var(--text-main, #212529)
+  font-family: Roboto
+  font-style: normal
+  font-weight: 400
+  &_big
+    font-size: 20px
+  &_mid
+    font-size: 18px
+  &_mini
+    font-size: 16px
+
+.title
+  color: var(--text-main, #212529)
+  font-family: Helvetica
+  line-height: 120%
+  &_big
+    font-size: 72px
+  &_mid
+    font-size: 48px
+  &_mini
+    font-size: 36px
+
+.header
+  padding: 10px 0
+
+.header__block
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.menu
+  display: flex
+  gap: 40px
+
+.logo
+  width: 70px
+
+.menu__list
+  display: flex
+  gap: 20px
+  align-items: center
+
+.menu__item > .menu__link
+  &:hover
+    color: #424242
