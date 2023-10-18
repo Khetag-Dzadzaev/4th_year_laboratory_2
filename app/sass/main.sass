@@ -1,5 +1,5 @@
 @import config
-
+//global
 .body
   a
     color: #000
@@ -130,6 +130,11 @@ img
   &_mini
     font-size: 36px
 
+.section
+  margin: 100px 0
+
+//header
+
 .header
   padding: 10px 0
 
@@ -139,8 +144,23 @@ img
   align-items: center
 
 .menu
+  position: absolute
+  transform: translateY(-200%)
+  transition: 0.3s
   display: flex
-  gap: 40px
+  gap: 20px
+  top: 15px
+  right: 15px
+  flex-direction: column
+  padding: 20px
+  background-color: #fff
+  +media-breakpoint-up(md)
+    position: static
+    transform: translateY(0%)
+    flex-direction: row
+    gap: 40px
+  &.open
+    transform: translateY(0)
 
 .logo
   width: 70px
@@ -148,8 +168,55 @@ img
 .menu__list
   display: flex
   gap: 20px
-  align-items: center
+  flex-direction: column
+  +media-breakpoint-up(md)
+    flex-direction: row
+    align-items: center
 
 .menu__item > .menu__link
   &:hover
     color: #424242
+
+.burger
+  width: 24px
+  height: 12px
+  position: relative
+  display: flex
+  align-items: center
+  position: relative
+  z-index: 3
+  transition: 0.3s
+  +media-breakpoint-up(md)
+    display: none
+  &::before,
+    content: ""
+    position: absolute
+    width: 100%
+    height: 1px
+    top: 0
+    left: 0
+    transition: 0.3s
+    background-color: #000
+  &.active::before
+    top: 50%
+    transform: rotate(45deg) translate(0%, -70%)
+  &::after
+    content: ""
+    position: absolute
+    right: 0
+    bottom: 0
+    transition: 0.3s
+    background-color: #000
+    width: 50%
+    height: 1px
+  &.active::after
+    bottom: 50%
+    transform: rotate(-45deg) translate(0, 50%)
+    width: 100%
+  &.active > .burger-line
+    display: none
+
+.burger-line
+  width: 100%
+  height: 1px
+  background-color: #000
